@@ -4,6 +4,7 @@ import 'package:cookery_app/components/skip_button.dart';
 import 'package:cookery_app/components/steps_container.dart';
 import 'package:cookery_app/config/size_config.dart';
 import 'package:cookery_app/models/onboarding_model.dart';
+import 'package:cookery_app/screens/onboarding/welcomeScreen/welcome_screen.dart';
 import 'package:flutter/material.dart';
 
 class OnboardingScreen extends StatefulWidget {
@@ -53,6 +54,15 @@ class _OnboardingScreenState extends State<OnboardingScreen> {
                           showAnimatedContainerCallBack: (value) {
                             setState(() {
                               showAnimatedContainer = value;
+                              if (value) {
+                                Future.delayed(Duration(seconds: 1), () {
+                                  Navigator.pushReplacement(
+                                      context,
+                                      MaterialPageRoute(
+                                          builder: (context) =>
+                                              WelcomeScreen()));
+                                });
+                              }
                             });
                           },
                         ),
